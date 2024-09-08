@@ -1,9 +1,41 @@
+@font-face {
+    font-family: "NerkoOne";
+    src: url(../fonts/NerkoOne-Regular.ttf);
+}
+@font-face {
+    font-family: "Roboto";
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+
 body{
-    background-color: aquamarine;
+    background-repeat: no-repeat;
+    background-image: url('../pictures/mainactivitiesbg.jpg');
+    background-size: cover;
 }
 .maintitle{
     font-size: 40px;
+    color: aliceblue;
 }
 .personallink{
     font-size: 15px;
 }
+.cardcontainer{
+    border: 10px black solid;
+    position: relative;
+    top: 20vh;
+    max-width: fit-content;
+    background-color: aqua;
+    border-radius: 20px;
+}
+.container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+label{
+    font-size: 40px;
+    font-family: "NerkoOne";
+}
+

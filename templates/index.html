@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-
-        Django App
-    </title>
+    <title>ML-Activity Recomender</title>
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -14,12 +11,36 @@
 
   </head>
   <body>
-    {% block content %}
-      <h1 class="maintitle pt-1 pl-1" href="#">Activities Recomender App<a class = "float-right pt-1 pr-1" target="_blank" href="https://www.sohamkundu.dev/"><p class="personallink">Soham's Personal Website<p></a></h1>
+    <h1 class="maintitle pt-1 pl-1" href="#">Activities Recomender App<a class = "float-right pt-1 pr-1" target="_blank" href="https://www.sohamkundu.dev/"><p class="personallink">Soham's Personal Website<p></a></h1>
 
-    <div class="container hihi">hi</div>
+    {% block content %}
+    <div class="container">
+      <div class="cardcontainer p-3">
+        <form class="cardform" method="POST" action="results">
+          <label for="age">How old are you?</label>
+          <input min="1" max="100"type="number" id="age" name="age" required><br><br>
+
+          <label for="gender">What is your gender</label>
+          <select id="gender" name="gender" required>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+          </select><br><br>
+
+          <label for="nightorday">Is it night or day?</label>
+          <select id="nightorday" name="nightorday" required>
+              <option value="1">Day</option>
+              <option value="2">Night</option>
+          </select><br><br>
+
+          <input type="submit" class="btn btn-primary" value="Find Matches!">
+
+        </form>
+      </div>
+    </div>  
+
+
+    {% endblock %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
-    {% endblock %}
   </body>
 </html>

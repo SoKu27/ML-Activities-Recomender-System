@@ -1,0 +1,26 @@
+{% extends "index.html" %} {% block content %}
+<body class="{% if info.nightorday == 'nighttime🌑' %}
+background-night
+{% else %}
+background-day
+{% endif %}">
+
+    <div class="resultheadercon"><h1 class="resultheader text-center p-2">Fun activities for {{ info.age }} year old {{ info.gender }} during the {{ info.nightorday }}</h1></div>
+    <link rel="stylesheet" href="../static/css/results.css">
+    <ol>
+        {% for activity, match in info.combined %}
+            <li class="listitems"
+        {% if match >= 80 %}
+            style="color: green;"  
+        {% elif match >= 51 %}
+            style="color: #BA8E23;" 
+        {% else %}
+            style="color: red;"    
+        {% endif %}>
+
+                {{ activity }} | {{ match }}% match!</li>
+        {% endfor %}
+    </ol>
+    <a href="/"><button type="button" class="btn btn-primary">Go back</button></a>
+</body>
+{% endblock %}

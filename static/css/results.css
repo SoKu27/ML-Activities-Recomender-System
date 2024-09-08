@@ -1,0 +1,24 @@
+.background-day{
+    background-repeat: no-repeat;
+    background-image: url('../pictures/bluesky.jpg');
+    background-size: cover;
+}
+.background-night{
+    background-repeat: no-repeat;
+    background-image: url('../pictures/nightsky.jpeg');
+    background-size: cover;
+}
+.listitems{
+    font-size: 26px;
+    padding: 20px;
+    font-family: "Roboto";
+}
+.resultheader{
+    font-family: "NerkoOne";
+    background-color: aliceblue;
+    display: inline;
+    text-align: center;
+}
+.resultheadercon{
+    text-align: center;
+}
