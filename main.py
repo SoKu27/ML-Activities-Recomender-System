@@ -2,6 +2,10 @@ from flask import Flask, render_template, session, request
 import pandas as pd
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.metrics import precision_score, hamming_loss
+from sklearn.model_selection import train_test_split
 import random 
 
 activities_data = pd.read_csv('activitiesData.csv')
@@ -9,8 +13,20 @@ activities_data = pd.read_csv('activitiesData.csv')
 X = activities_data[['Age', 'Gender', 'nightorday']]
 y = activities_data.drop(columns=['Age', 'Gender', 'nightorday'])
 
-model = DecisionTreeClassifier()
-model.fit(X, y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+
+
+multiLabelRandomForest = MultiOutputClassifier(RandomForestClassifier(n_estimators=500, max_depth=3, random_state=1))
+multiLabelRandomForest.fit(X_train, y_train)
+Y_pred = multiLabelRandomForest.predict(X_test)
+
+precision = precision_score(y_test, Y_pred, average="macro", zero_division=1)
+hamming_loss = hamming_loss(y_test, Y_pred)
+print(precision)
+#should be closer to one
+print(hamming_loss)
+#should be close to zero
+
 
 app = Flask(__name__)
 
@@ -36,7 +52,7 @@ def index():
 
 
     prediction_input = pd.DataFrame([[age, gender, nightorday]], columns=['Age', 'Gender', 'nightorday'])
-    predictions = model.predict(prediction_input)
+    predictions = multiLabelRandomForest.predict(prediction_input)
     activities_list = [
       "Learn to play a new musical instrument",
       "Take a beginner's coding class",
