@@ -1,2 +1,5 @@
 # ML-Activities-Recomender-System
- 
+
+I designed and developed a dynamic full-stack web which allows users to input their age, gender, and time of day to receive personalized activity recommendations. I created a custom synthetic dataset with over 10,000 data points using Pandas and NumPy and trained a machine learning model using Scikit-learn’s MultiOutputClassifier with a RandomForestClassifier (500 estimators, max depth of 3), achieving 75% accuracy and a 25% hamming loss on test data. The application includes an end-to-end ML pipeline with train-test splits and model evaluation for optimal performance. Additionally, I generated a tailored activity list using ChatGPT, incorporating unique options based on user preferences and displayed how well each activity matched users through a custom percentage-based scoring system. I also implemented a robust SQL database to store user inputs, providing insights into user behavior trends and enabling future model improvements.
+
+Languages and tools used - Python, Flask, Machine Learning, Pandas, NumPy, Scikit-Learn, SQL, HTML, CSS, Bootstrap
